@@ -3,6 +3,14 @@ import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
 
+import os
+import streamlit as st
+
+model_path = "model/model.keras"
+st.write("Current working directory:", os.getcwd())
+st.write("Model file exists:", os.path.exists(model_path))
+
+
 model = load_model("model/model.keras")
 with open("classes.txt", "r") as f:
     class_names = [line.strip() for line in f.readlines()]
